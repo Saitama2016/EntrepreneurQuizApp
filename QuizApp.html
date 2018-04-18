@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Entrepreneur Quiz App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Test your knowledge of modern leaders and products in the world of Entrepreneurship">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="QuizApp.css">
+</head>
+<body>
+  <div id="container" >
+    <h1>Entrepreneur Quiz <i class="fa fa-book" style="font-size:36px"></i></h1>
+    <section id="startPage" role="main">
+    <h2>So, you want to be an Entrepreneur! Do you have what it takes? Let's see if you know the basics!</h2>
+    <button id="jsStartButton">Begin!</button>
+    </section>
+  </div>
+  <div>
+    <section id="questionPage" role="main">
+      <h3 id="question">Who is Forbe's Richest Man in 2018?</h3>
+        
+        <form>
+          <fieldset>
+            <label>
+              <input class="answer" type="radio" name="option" required></input>
+              <span>Bill Gates</span>
+            </label>
+          
+            <label>
+              <input class="answer" type="radio" name="option" ></input>
+              <span>Elon Musk</span>
+            </label>
+          
+            <label>
+              <input class="answer" type="radio" name="option" ></input>
+              <span>Warren Buffet</span>
+            </label>
+          
+            <label>
+              <input class="answer" type="radio" name="option" ></input>
+              <span>Jeff Bezos</span>
+            </label>
+            </fieldset>
+            <button id="jsSubmitButton">Submit</button>
+        </form>
+        
+      <div id="progressBar">
+        <span id="questionNum">Question: 0/10 </span>
+        <span id="scoreBoard">Score: 0/10 </span>
+      </div>
+      </section>
+      
+    </div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</body>
+</html>

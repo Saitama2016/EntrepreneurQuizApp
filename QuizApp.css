@@ -1,0 +1,72 @@
+html {
+  height: 100%;
+}
+
+body {
+   background: radial-gradient(rgba(9, 245, 245, 0.836),
+   rgba(0, 102, 255, 0.76));
+   background-repeat: no-repeat;
+}
+
+#startPage {
+  text-align: center;
+}
+
+#questionPage{
+display: none;
+}
+
+#jsStartButton {
+display: block;
+padding: 10px;
+margin-left: auto;
+margin-right: auto;
+background-color: #F8DD43;
+border: none;
+border-radius: 0;
+}
+
+h1 {
+  background: rgb(230, 225, 225, 0.568);
+  text-align: center;
+}
+
+.answer {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#questionNum, #scoreBoard {
+font-weight: bold;
+font-size: 20px;
+}
+
+#questionNum {
+float: left;
+}
+
+#scoreBoard {
+float: right;
+}
+
+#question {
+  border: 1px solid gray;
+  padding: 20px;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+label {
+margin-bottom: 20px;
+}
+
+#jsSubmitButton {
+display: block;
+margin-top: 15px;
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+}
