@@ -13,37 +13,36 @@
   <link rel="stylesheet" type="text/css" media="screen" href="QuizApp.css">
 </head>
 <body>
-  <div id="container" >
+  <header id="container">
     <h1>Entrepreneur Quiz <i class="fa fa-book" style="font-size:36px"></i></h1>
+  </header>
     <section id="startPage" role="main">
     <h2>So, you want to be an Entrepreneur! Do you have what it takes? Let's see if you know the basics!</h2>
     <button id="jsStartButton">Begin!</button>
     </section>
-  </div>
   <div>
     <section id="questionPage" role="main">
-      <h3 id="question">Who is Forbe's Richest Man in 2018?</h3>
-        
+      <h3 id="question"></h3>
         <form>
           <fieldset>
             <label>
               <input class="answer" type="radio" name="option" required></input>
-              <span>Bill Gates</span>
+              <span id="ans1"></span>
             </label>
           
             <label>
               <input class="answer" type="radio" name="option" ></input>
-              <span>Elon Musk</span>
+              <span id="ans2"></span>
             </label>
           
             <label>
               <input class="answer" type="radio" name="option" ></input>
-              <span>Warren Buffet</span>
+              <span id="ans3"></span>
             </label>
           
             <label>
               <input class="answer" type="radio" name="option" ></input>
-              <span>Jeff Bezos</span>
+              <span id="ans4"></span>
             </label>
             </fieldset>
             <button id="jsSubmitButton">Submit</button>

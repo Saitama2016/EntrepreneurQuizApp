@@ -70,3 +70,7 @@ margin-left: auto;
 margin-right: auto;
 padding: 10px;
 }
+
+#jsSubmitButton:hover {
+  background-color: rgb(218, 233, 18);
+}
