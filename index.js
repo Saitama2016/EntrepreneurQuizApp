@@ -42,8 +42,11 @@ function createQuestion () {
     $('#ans2').html(DATABASE.answers[1]);
     $('#ans3').html(DATABASE.answers[2]);
     $('#ans4').html(DATABASE.answers[3]);
-    
 }
+
+$('#scoreBoard').html("Score: " + DATABASE.score + "/10");
+
+$('#questionNum').html("Question: " + DATABASE.index + "/10");
 
 $('#jsSubmitButton').on('click', function() {
     console.log('Answered!');
