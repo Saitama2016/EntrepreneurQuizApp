@@ -1,4 +1,4 @@
-$(function () {
+$( () => { // Module
     console.log('loaded');
     let DATABASE = {user:'', 
     score:0, 
@@ -15,7 +15,7 @@ $(function () {
     "On average, how many books do CEOs read per year?",
     "Which of these assests can you not get back?",
     "Which CEO began their career as a newspaper delivery boy?"], 
-    answers:["Bill Gates", "Elon Musk", "Warren Buffet", "Jeff Bezos", 
+    answers:["Bill Gates", "Elon Musk", "Vladimir Putin", "Jeff Bezos", 
     "Amazon", "Google", "Apple", "IBM", "iPhone", "Instagram", "Uber", "Airbnb",
 "Mentors", "Books", "Time", "Distractions", "Stocks", "Real Estate", "Cryptocurrency",
 "Freelancing", "15.3%", "7.65%", "25%", "2.9%", "Toys 'R' Us", "Kodak", "Radio Shack",
@@ -48,14 +48,21 @@ $('#scoreBoard').html("Score: " + DATABASE.score + "/10");
 
 $('#questionNum').html("Question: " + DATABASE.index + "/10");
 
-$('#jsSubmitButton').on('click', function() {
+$('#jsSubmitButton').on('click', function(e) {
+    // debugger;
+    console.log(e);
+    e.preventDefault();
     console.log('Answered!');
-    alert('Please select an answer')
-    // if (1 == 1) {
-    // $('#questionPage').hide();
-    // $('#feedbackPage').css('display', 'block');
-    // }
+    const userAnsw = $('input:checked').siblings('span');
+    console.log(userAnsw.html());
+    for (var i = 0; i < DATABASE.rightAnsw.length; i++) {
+        if (userAnsw.html() === DATABASE.rightAnsw[i]) {
+            console.log('correct');
+        }
+    }
 });
+
+$('#feedbackPage').prepend('<img id="correctFeedback" src="https://media1.giphy.com/media/KySymGAt2SJmE/giphy.gif" />')
 
 // $('#finalScore')
 

@@ -26,7 +26,7 @@
         <form>
           <fieldset>
             <label>
-              <input class="answer" type="radio" name="option" required></input>
+              <input class="answer" type="radio" name="option" checked></input>
               <span id="ans1"></span>
             </label>
           
@@ -49,20 +49,18 @@
         </form>
         
       <div id="progressBar">
-        <span id="questionNum">Question: 0/10 </span>
-        <span id="scoreBoard">Score: 0/10 </span>
+        <span id="questionNum"></span>
+        <span id="scoreBoard"></span>
       </div>
       </section>
       
-      <section id="feedbackPage">
-        <img>
-        <button id="nextQuestion">Next</button>
+      <section id="feedbackPage" role="main">
+        <button id="jsNextQuestion">Next</button>
       </section>
 
       <section id="finalScore">
         <span>You're Final Score is</span>
         <span></span>
-        <img>
       </section>
 
     </div>
