@@ -6,65 +6,124 @@ $( () => { // Module
     correct:0, 
     index:0, 
     question:["Who is Forbe's Richest Man in 2018?", 
-    "Which major company was founded by Larry Page and Sergey Brin?",
     "Which product/service helped revolutionized the smartphone industry?",
-    "Which of these do you not need to be successful in business?",
     "Which of these is the safest form of passive income?",
-    "What is the tax rate for a 1099 income?",
-    "Which company failed to purchase Netflix and were forced to go out of business?",
     "On average, how many books do CEOs read per year?",
     "Which of these assests can you not get back?",
     "Which CEO began their career as a newspaper delivery boy?"], 
     answers:["Bill Gates", "Elon Musk", "Vladimir Putin", "Jeff Bezos", 
-    "Amazon", "Google", "Apple", "IBM", "iPhone", "Instagram", "Uber", "Airbnb",
-"Mentors", "Books", "Time", "Distractions", "Stocks", "Real Estate", "Cryptocurrency",
-"Freelancing", "15.3%", "7.65%", "25%", "2.9%", "Toys 'R' Us", "Kodak", "Radio Shack",
-"Blockbuster", "20", "50", "100", "75", "Home", "Investments", "Time", "Cars", "Howard Schultz",
-"Warren Buffet", "Evan Williams", "Ray Kroc"], 
-    rightAnsw:["Jeff Bezos", "Google", "iPhone", "Distractions", 
-    "Real Estate", "15.3%", "Blockbuster", "50", "Time", "Warren Buffet"]};
+    "iPhone", "Instagram", "Uber", "Airbnb", 
+    "Stocks", "Real Estate", "Cryptocurrency", "Freelancing",  
+    "20", "50", "100", "75", 
+    "Home", "Investments", "Time", "Cars", 
+    "Howard Schultz", "Warren Buffet", "Evan Williams", "Ray Kroc"], 
+    rightAnsw:["Jeff Bezos", "iPhone", 
+    "Real Estate", "50", "Time", "Warren Buffet"]};
 // $('header').on("click", function(){
 //     $('#thing1').animate({opacity:0, height:0, display:'none'},3000, function(){})
 //     $('#thing2').hide(3000)
 // });
 
+let questionNum = 1;
+
+let correctAns = DATABASE.correct;
+
+function handleStartButton() {
 $('#jsStartButton').on('click', function() {
-    console.log('clicked!');
     $('#startPage').hide();
     $('#questionPage').css('display', 'block');
-    // $('form:nth-child(1)').css('display', 'block');
   });
-
-function createQuestion () {
-    console.log(DATABASE);
-    $('#question').html(DATABASE.question[0]);
-    $('#ans1').html(DATABASE.answers[0]);
-    $('#ans2').html(DATABASE.answers[1]);
-    $('#ans3').html(DATABASE.answers[2]);
-    $('#ans4').html(DATABASE.answers[3]);
 }
 
-$('#scoreBoard').html("Score: " + DATABASE.score + "/10");
+function createQuestion () {
+    $('#question').html(DATABASE.question[questionNum-1]);
+    $('#ans1').html(DATABASE.answers[(questionNum-1) * 4]);
+    $('#ans2').html(DATABASE.answers[((questionNum-1) * 4)+1]);
+    $('#ans3').html(DATABASE.answers[((questionNum-1) * 4)+2]);
+    $('#ans4').html(DATABASE.answers[((questionNum-1) * 4)+3]);
+}
 
-$('#questionNum').html("Question: " + DATABASE.index + "/10");
+function scoreCounter () {
+    correctAns++;
+    $('#scoreBoard').html("Score: " + correctAns + "/6");
+}
 
+function currentQuestion () {
+    questionNum++;
+    $('#questionNum').html("Question: " + questionNum + "/6");
+}
+
+
+function correctFeedback () {
+    $('#feedbackPage').show();
+    $('#Congrats').prepend('<img id="correctFeedback" src="https://media1.giphy.com/media/KySymGAt2SJmE/giphy.gif " alt="Wolf of Wall Street Dance Party" />');
+    $('#correct').html('Congratulations! That is correct!');
+    $('#incorrect').hide();
+    $('#Sorry').hide();
+    $('#questionPage').hide();
+}
+
+function incorrectFeedback () {
+    $('#feedbackPage').show();
+    $('#Sorry').prepend('<img id="incorrectFeedback" src="https://media.giphy.com/media/3o6ZsZKbgw4QVWEbzq/giphy.gif " alt="Donald Trump Shaking Head at RNC" />');
+    $('#incorrect').html('The correct answer is ' + DATABASE.rightAnsw[questionNum-1]);
+    $('#correct').hide();
+    $('#Sorry').hide();
+    $('#questionPage').hide();
+}
+
+function handleSubmitButton () {
 $('#jsSubmitButton').on('click', function(e) {
-    // debugger;
-    console.log(e);
     e.preventDefault();
-    console.log('Answered!');
     const userAnsw = $('input:checked').siblings('span');
-    console.log(userAnsw.html());
-    for (var i = 0; i < DATABASE.rightAnsw.length; i++) {
-        if (userAnsw.html() === DATABASE.rightAnsw[i]) {
-            console.log('correct');
+        if (userAnsw.html() === DATABASE.rightAnsw[questionNum-1]) {
+            correctFeedback();
+            scoreCounter();
+            $('#Congrats').show();
+            $('#correct').show();
+            console.log(correctAns);
+        } else {
+            incorrectFeedback();
+            $('#Sorry').show();
+            $('#incorrect').show();
         }
+});
+}
+
+function handleNextButton () {
+$('#jsNextButton').on('click', function(e) {
+    $('#feedbackPage').hide();
+    if(questionNum === 6) {
+        finalScore(correctAns);
+    } else {
+        currentQuestion();
+        newQuestion();
+        createQuestion();
+        console.log(questionNum);
     }
 });
+}
 
-$('#feedbackPage').prepend('<img id="correctFeedback" src="https://media1.giphy.com/media/KySymGAt2SJmE/giphy.gif" />')
+function newQuestion() {
+    $('#questionPage').css('display','block');
+}
 
-// $('#finalScore')
+$('#scoreBoard').html("Score: " + correctAns + "/6");
 
-createQuestion();
+$('#questionNum').html("Question: " + questionNum + "/6");
+
+function finalScore() {
+    $('#finalPage').show();
+    $('#scoreBoard').show();
+    $('#scoreBoard').html("Score: " + correctAns + "/6");
+}
+
+function handleButtons() {
+    handleStartButton();
+    createQuestion();
+    handleSubmitButton();
+    handleNextButton();
+}
+
+handleButtons();
 });
