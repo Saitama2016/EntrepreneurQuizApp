@@ -56,19 +56,17 @@ function currentQuestion () {
 
 function correctFeedback () {
     $('#feedbackPage').show();
-    $('#Congrats').prepend('<img id="correctFeedback" src="https://media1.giphy.com/media/KySymGAt2SJmE/giphy.gif " alt="Wolf of Wall Street Dance Party" />');
+    // $('#Congrats').prepend('<img id="correctFeedback" src="https://media1.giphy.com/media/KySymGAt2SJmE/giphy.gif " alt="Wolf of Wall Street Dance Party" />');
     $('#correct').html('Congratulations! That is correct!');
     $('#incorrect').hide();
-    $('#Sorry').hide();
     $('#questionPage').hide();
 }
 
 function incorrectFeedback () {
     $('#feedbackPage').show();
-    $('#Sorry').prepend('<img id="incorrectFeedback" src="https://media.giphy.com/media/3o6ZsZKbgw4QVWEbzq/giphy.gif " alt="Donald Trump Shaking Head at RNC" />');
+    // $('#Sorry').prepend('<img id="incorrectFeedback" src="https://media.giphy.com/media/3o6ZsZKbgw4QVWEbzq/giphy.gif " alt="Donald Trump Shaking Head at RNC" />');
     $('#incorrect').html('The correct answer is ' + DATABASE.rightAnsw[questionNum-1]);
     $('#correct').hide();
-    $('#Sorry').hide();
     $('#questionPage').hide();
 }
 
@@ -114,8 +112,19 @@ $('#questionNum').html("Question: " + questionNum + "/6");
 
 function finalScore() {
     $('#finalPage').show();
-    $('#scoreBoard').show();
-    $('#scoreBoard').html("Score: " + correctAns + "/6");
+    $('#finalPage').prepend('<img id="message" src="http://ryanstephensmarketing.com/blog/wp-content/uploads/2017/02/Trust-the-Process.jpg " alt="Trust the Process" />')
+    $('#results').html('Thanks for playing your final score is: ' + correctAns + "/6");
+}
+
+function handleResetButton() {
+    $('#jsResetButton').on('click', function(e) {
+        $('#finalPage').hide();
+        let correctAns = DATABASE.correct;
+        let questionNum = 1;
+        $('#scoreBoard').html("Score: " + correctAns + "/6");
+        $('#questionNum').html("Question: " + questionNum + "/6");
+        createQuestion();
+    });
 }
 
 function handleButtons() {
@@ -123,6 +132,7 @@ function handleButtons() {
     createQuestion();
     handleSubmitButton();
     handleNextButton();
+    handleResetButton();
 }
 
 handleButtons();
