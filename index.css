@@ -1,0 +1,368 @@
+html {
+  height: 100%;
+  background-size: cover;
+}
+
+body {
+   background: radial-gradient(rgba(9, 245, 245, 0.836),
+   rgba(0, 102, 255, 0.76));
+   background-repeat: no-repeat;
+}
+
+#startPage {
+  text-align: center;
+}
+
+#questionPage, #finalPage{
+display: none;
+}
+
+#jsStartButton {
+display: block;
+padding: 20px;
+margin-left: auto;
+margin-right: auto;
+background-color: #F8DD43;
+border-radius: 20%;
+border: 1px solid #252424b0;
+box-shadow: 2px 2px 2px steelblue;
+font-size: 20px;
+font-weight: bold;
+}
+
+h1 {
+  background: rgb(230, 225, 225, 0.568);
+  text-align: center;
+}
+
+legend {
+  background-color: rgba(189, 242, 245, 0.911);
+  border: 1px solid silver;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.answer {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#questionNum, #scoreBoard {
+font-weight: bold;
+font-size: 20px;
+margin-top: 20px;
+}
+
+#questionNum {
+float: left;
+}
+
+#scoreBoard {
+float: right;
+}
+
+#question {
+  border: 1px solid gray;
+  padding: 20px;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #a4e2f7;
+}
+
+.questionBlock {
+  background-color: aliceblue;
+  border: 1px solid black;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.questionBlock:hover {
+  opacity: 0.8;
+}
+
+label {
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5em;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px 0px #5da3dc;
+  font-weight: bold;
+  font-family: Verdana, sans-serif
+}
+
+#jsSubmitButton:hover {
+  background-color: rgba(158, 86, 240, 0.863);
+}
+
+#jsNextButton:hover {
+  background-color: rgba(6, 185, 185, 0.877);
+}
+
+#jsResetButton:hover {
+  background-color: rgba(247, 227, 114, 0.904); 
+}
+
+#feedbackPage {
+  display: none;
+}
+
+#feedbackPage img {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#correct, #incorrect {
+  display: block;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgba(240, 193, 193, 0.904);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+#message {
+  display: block;
+  width: 40%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#results {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+#finalScore {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #feedPage {
+    margin-top: 4em;
+  }
+
+  #question {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #a4e2f7;
+  }
+
+  .questionBlock {
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    line-height: .5em;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  #questionNum, #scoreBoard {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 1.3em;
+    font-size: .8em;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 779px) {
+
+  h2 {
+    font-size: 2em;
+  }
+
+  #jsStartButton {
+    font-size: 1.5em;
+
+  }
+
+  legend {
+    padding: 1em;
+    font-size: 1.5em;
+  }
+
+  .questionBlock {
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+    padding: 24px;
+    font-size: 1.5em;
+  }
+
+  #questionNum, #scoreBoard {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-top: 30px;
+    }
+  
+  button {
+    padding: 1.8em;
+    font-size: 1.2em;
+  }
+  
+  #question {
+  border: 2px solid gray;
+  padding: 1em;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #a4e2f7;
+  font-size: 2em;
+  }
+
+  #correct, #incorrect {
+    font-size: 2em;
+  }
+
+  #results {
+    font-size: 2em;
+  }
+} 
+
+@media screen and (min-width: 780px) and (max-width: 1023px) {
+
+  h2 {
+    font-size: 2em;
+  }
+
+  #jsStartButton {
+    font-size: 1.5em;
+
+  }
+
+  legend {
+    padding: .5em;
+    font-size: 1em;
+  }
+
+  .questionBlock {
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1em;
+    padding: .5em;
+    font-size: 1em;
+  }
+
+  #questionNum, #scoreBoard {
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 1px;
+    }
+  
+  button {
+    padding: 1em;
+    font-size: 1em;
+  }
+  
+  #question {
+  border: 2px solid gray;
+  padding: .5em;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #a4e2f7;
+  font-size: 1.5em;
+  }
+
+  #correct, #incorrect {
+    font-size: 2em;
+  }
+
+  #results {
+    font-size: 2em;
+  }
+} 
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 2.5em;
+  }
+
+  #jsStartButton {
+    padding: 1em;
+    font-size: 2em;
+  }
+
+  legend {
+    padding: 1em;
+    font-size: 2em;
+  }
+
+  .questionBlock {
+    background-color: aliceblue;
+    border: 1px solid black;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1.5em;
+    padding: 24px;
+    font-size: 2em;
+  }
+
+  #questionNum, #scoreBoard {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-top: 30px;
+    }
+  
+  button {
+    padding: 2em;
+    font-size: 1.6em;
+  }
+  
+  #question {
+  border: 2px solid gray;
+  padding: 1em;
+  margin: 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #a4e2f7;
+  font-size: 2em;
+  }
+
+  #correct, #incorrect {
+    font-size: 2.5em;
+  }
+
+  #results {
+    font-size: 2.5em;
+  }
+}
